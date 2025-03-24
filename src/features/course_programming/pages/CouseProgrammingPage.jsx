@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom"
 import GenericTable from "../../../shared/components/Table"
 
 
-const programaciones = [
+const schedules = [
     { id: 1, nombre: "Programa 1", fechaInicio: "01-01-2023", fechaFin: "01-01-2024", estado: "Activo" },
     { id: 2, nombre: "Programa 2", fechaInicio: "01-01-2023", fechaFin: "01-01-2024", estado: "Activo" },
     { id: 3, nombre: "Programa 3", fechaInicio: "01-01-2023", fechaFin: "01-01-2024", estado: "Activo" },
@@ -25,8 +26,10 @@ const columns = [
 ]
 
 const CouseProgrammingPage = () => {
+    const navigate = useNavigate()
+
     const handleAddProgramming = () => {
-        console.log("Añadir Programación")
+        navigate("/programacionCursos/registrarProgramacion")
     }
     
     const handleShowProgramming = (programming) => {
@@ -43,7 +46,7 @@ const CouseProgrammingPage = () => {
 
     return (
         <GenericTable
-            data={programaciones}
+            data={schedules}
             columns={columns}
             onAdd={handleAddProgramming}
             onShow={handleShowProgramming}
