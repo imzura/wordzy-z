@@ -1,11 +1,7 @@
-import GenericTable from "../../../shared/components/Table"
-
-
-const roles = [
-  { id: 1, nombre: "Administrador", descripcion: "Administrador del sistema", fechaCreacion: "2023-01-01", estado: "Activo" },
-  { id: 2, nombre: "Instructor", descripcion: "Usuario con acceso parcial", fechaCreacion: "2023-01-02", estado: "Inactivo" },
-  { id: 3, nombre: "Aprendiz", descripcion: "Usuario con acceso limitado", fechaCreacion: "2023-01-03", estado: "Activo" },
-]
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import GenericTable from "../../../shared/components/Table";
+import { RoleContext } from "../../../shared/contexts/RoleContext/RoleContext";// Importa el contexto
 
 const columns = [
   { key: "id", label: "Id" },
@@ -19,31 +15,36 @@ const columns = [
       </span>
     )
   },
-]
+];
 
 const RolesPage = () => {
+  const navigate = useNavigate();
+  const { roles } = useContext(RoleContext); // Obtén los roles del contexto
+
   const handleAddRole = () => {
-    console.log("Añadir Rol")
-  }
+    navigate("/roles/registrarRol"); // Redirige a la ruta de registro
+  };
 
   const handleEditRole = (role) => {
-    console.log("Editar Rol:", role)
-  }
+    console.log("Editar Rol:", role);
+  };
 
   const handleDeleteRole = (id) => {
-    console.log("Eliminar Rol con ID:", id)
-  }
+    console.log("Eliminar Rol con ID:", id);
+  };
 
   return (
-    <GenericTable
-      data={roles}
-      columns={columns}
-      onAdd={handleAddRole}
-      onEdit={handleEditRole}
-      onDelete={handleDeleteRole}
-      title="GESTIÓN DE ROLES"
-    />
-  )
-}
+    <div className="p-6">
+      <GenericTable
+        data={roles}
+        columns={columns}
+        onAdd={handleAddRole}
+        onEdit={handleEditRole}
+        onDelete={handleDeleteRole}
+        title="GESTIÓN DE ROLES"
+      />
+    </div>
+  );
+};
 
-export default RolesPage
+export default RolesPage;

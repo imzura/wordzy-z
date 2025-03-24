@@ -28,7 +28,7 @@ const CouseProgrammingPage = () => {
     const handleAddProgramming = () => {
         console.log("Añadir Programación")
     }
-
+    
     const handleShowProgramming = (programming) => {
         console.log("Detalle de la Programación:", programming)
     }

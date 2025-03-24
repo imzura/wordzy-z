@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import GenericTable from "../../../shared/components/Table"
 
 
-const cursosProgramados = [
+const scheduledCourses = [
     { nivel: "Nivel 1", cantidadFichas: "25", cantidadInstructores: "3", progresoGeneral: "25%" },
     { nivel: "Nivel 2", cantidadFichas: "30", cantidadInstructores: "4", progresoGeneral: "100%" },
     { nivel: "Nivel 3", cantidadFichas: "29", cantidadInstructores: "1", progresoGeneral: "50%" },
@@ -19,16 +20,19 @@ const columns = [
 ]
 
 const ScheduledCoursesPage = () => {
-    const handleShowProgramming = (programming) => {
-        console.log("Detalle de la Programación:", programming)
+    const navigate = useNavigate();
+
+    const handleShowProgramming = () => {
+        navigate("/cursosProgramados/fichas");
     }
 
     return (
         <GenericTable
-            data={cursosProgramados}
+            data={scheduledCourses}
             columns={columns}
             onShow={handleShowProgramming}
-            title="CURSOS PROGRAMADOS"
+            title="LISTADO DE NIVELES"
+            tooltipText="Ver Fichas"
             showActions={{ show: true, edit: false, delete: false, add: false }}
         />
     )
