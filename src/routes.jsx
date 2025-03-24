@@ -9,7 +9,7 @@ import DashboardPage from "./features/dashboard/pages/dashboardPage";
 import RegistrarRolPage from "./features/role/page/RegisterRolePage";
 import FilePage from "./features/scheduled_courses/pages/FilePage";
 import TraineesPage from "./features/scheduled_courses/pages/TraineesPage";
-import CourseProgrammingForm from "./features/course_programming/components/CourseProgrammingForm";
+import CourseProgramming from "./features/course_programming/components/CourseProgrammingForm";
 
 const AppRoutes = () => {
   return (
@@ -18,7 +18,7 @@ const AppRoutes = () => {
         <Route path="/" element={<DashboardPage/>}/>
         <Route path="/temas" element={<TopicsPage/>}/>
         <Route path="/programacionCursos" element={<CouseProgrammingPage/>}/>
-        <Route path="/programacionCursos/registrarProgramacion" element={<CourseProgrammingForm/>}/>
+        <Route path="/programacionCursos/registrarProgramacion" element={<CourseProgramming/>}/>
         <Route path="/cursosProgramados" element={<ScheduledCoursesPage/>}/>
         <Route path="/cursosProgramados/fichas" element={<FilePage/>}/>
         <Route path="/cursosProgramados/fichas/aprendices" element={<TraineesPage/>}/>
